@@ -16,7 +16,7 @@ function App() {
       const myData = response.val();
       console.log(myData);
       const newArray = [];
-
+      const key = "JCWSLD5KCL4HGL0Q";
       for (const stocks in myData) {
         const stock = {
           key: stocks,
@@ -26,25 +26,30 @@ function App() {
         };
         console.log(stock);
         newArray.push(stock);
+        axios({
+          url: "https://www.alphavantage.co/query",
+          method: "GET",
+          params: {
+            function: "TIME_SERIES_DAILY",
+            symbol: stock.symbol,
+            apikey: key,
+          },
+        }).then((res) => {
+          console.log(res.data);
+          const inputPrice = stock.price;
+          const todayPrice =
+            res.data["Time Series (Daily)"]["2021-07-23"]["4. close"];
+          const profitPerShare = todayPrice - inputPrice;
+          const profitPerStock = profitPerShare * stock.share
+          console.log(profitPerStock);
+        }).catch((error)=>{
+          alert(error,'Please enter correct information or wait for another minute.')
+        })
       }
       setStockList(newArray);
+      console.log(stockList);
     });
   }, []);
-
-  // useEffect(() => {
-  //   const key = "JCWSLD5KCL4HGL0Q";
-  //   axios({
-  //     url: "https://www.alphavantage.co/query",
-  //     method: "GET",
-  //     params: {
-  //       function: "TIME_SERIES_DAILY",
-  //       symbol: "tsla",
-  //       apikey: key,
-  //     },
-  //   }).then((res) => {
-  //     console.log(res.data);
-  //   });
-  // }, []);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -117,7 +122,10 @@ function App() {
                     <button
                       onClick={() => {
                         handleDelete(stockObject.key);
-                      }}>-</button>
+                      }}
+                    >
+                      -
+                    </button>
                   </td>
                 </tr>
               </tbody>
