@@ -1,17 +1,18 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import axios from "axios";
+
 const Calculation = (props) => {
   const { stockList } = props;
   const [newList, setNewList] = useState([]);
-  const newArray = [];
+  let totalProfit = 0;
+
   const handleCalculate = (e) => {
     e.preventDefault();
-
+    const newArray = [];
     const key = "JCWSLD5KCL4HGL0Q";
-    let totalProfit = 0;
 
     stockList.map((stockObj) => {
-      axios({
+      const promiseObj = axios({
         url: "https://www.alphavantage.co/query",
         method: "GET",
         params: {
@@ -19,28 +20,36 @@ const Calculation = (props) => {
           symbol: stockObj.symbol,
           apikey: key,
         },
-      })
-        .then((res) => {
-          const inputPrice = stockObj.price;
-          const todayPrice =
-            res.data["Time Series (Daily)"]["2021-07-23"]["4. close"];
-          const profitPerStock =
-            (Math.round(todayPrice - inputPrice) * stockObj.share * 100) / 100;
-          totalProfit += profitPerStock;
-          const profit = { profit: profitPerStock, total: totalProfit };
-          const stock1 = { ...stockObj, ...profit };
-          newArray.push(stock1);
-          setNewList(newArray);
-            console.log(newArray);
-        })
-        .catch((error) => {
-            console.log(
-              error,
-              "Please enter correct information or wait for another minute."
-            );
-        });
+      });
+      newArray.push(promiseObj);
     });
-    
+    Promise.all(newArray)
+      .then((res) => {
+        const profitArray = [];
+        res.forEach((obj) => {
+          stockList.forEach((stockObj) => {
+            if (stockObj.symbol === obj.data["Meta Data"]["2. Symbol"]) {
+              const inputPrice = stockObj.price;
+              const todayPrice =
+                obj.data["Time Series (Daily)"]["2021-07-23"]["4. close"];
+              const profitPerStock =
+                (Math.round(todayPrice - inputPrice) * stockObj.share * 100) /
+                100;
+              totalProfit += profitPerStock;
+              const profit = { profit: profitPerStock, total: totalProfit };
+              const stock1 = { ...stockObj, ...profit };
+              profitArray.push(stock1);
+            }
+          });
+        });
+        setNewList(profitArray);
+      })
+      .catch((error) => {
+        console.log(
+          error,
+          "Please enter correct information or wait for another minute."
+        );
+      });
   };
 
   return (
@@ -49,17 +58,15 @@ const Calculation = (props) => {
         <thead>
           <tr>
             <th>Profit</th>
-            <th>Total</th>
           </tr>
         </thead>
         <tbody>
-          {newList.map((profitObject) => {
-            return (
-              <tr key={profitObject.key}>
-                <td>{profitObject.total}</td>
-              </tr>
-            );
-          })}
+          <tr>
+            {newList.map((profitObject) => {
+              
+              return <td key={profitObject.key}>{profitObject.profit}</td>;
+            })}
+          </tr>
         </tbody>
       </table>
       <button className="submit" onClick={handleCalculate}>

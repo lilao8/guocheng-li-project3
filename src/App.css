@@ -44,6 +44,10 @@ h1{
 .calculation thead{
     display: flex;
 }
+.calculation tbody tr{
+    display: flex;
+    flex-direction: column;
+}
 
 .isPositive {
     color: greenyellow;

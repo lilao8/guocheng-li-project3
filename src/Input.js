@@ -1,8 +1,8 @@
 import { useState } from "react";
 import firebase from "./firebase";
 
-const Input = (props) => {
-  const { stockList } = props;
+const Input = () => {
+//   const { stockList } = props;
   const [symbol, setSymbol] = useState("");
   const [price, setPrice] = useState("");
   const [share, setShare] = useState("");

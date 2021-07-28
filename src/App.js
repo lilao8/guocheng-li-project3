@@ -1,22 +1,19 @@
 import "./App.css";
 import { useEffect, useState } from "react";
 import firebase from "./firebase";
-import axios from "axios";
 import Input from "./Input";
 import Stocks from "./Stocks";
 import Calculation from "./Calculation";
 
 function App() {
   const [stockList, setStockList] = useState([]);
-  const [newList, setNewList] = useState([]);
+  // const [newList, setNewList] = useState([]);
 
   useEffect(() => {
     const dbRef = firebase.database().ref();
     dbRef.on("value", (response) => {
       const myData = response.val();
-
       const newArray = [];
-
       for (const stocks in myData) {
         const stock = {
           key: stocks,
@@ -30,7 +27,7 @@ function App() {
     });
   }, []);
 
-
+  
 
   return (
     <div className="App">
@@ -42,7 +39,6 @@ function App() {
       <main>
         <div className="tables wrapper">
           <Stocks stockList={stockList} />
-
           <Calculation stockList={stockList} />
         </div>
       </main>
