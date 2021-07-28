@@ -7,9 +7,7 @@ html{
     
     background-size: cover;
 }
-header {
 
-}
 main{
     font-size: 2rem;
 }
@@ -18,21 +16,35 @@ main{
     max-width: 1440px;
     margin: 0 auto;
 }
+form label{
+  background-color: rgba(0,0,0,0.7);
+}
+input {
+    display:block;
+}
+input{
+    margin: 0 auto;
+}
 .tables{
     display: flex;
     justify-content: center;
 }
 table {
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0,0,0,0.7);
     padding: 30px;
     margin: 30px 0;
 }
 td {
     text-transform: uppercase;  
 }
+
 h1{
     font-size: 3rem;
 }
+.calculation thead{
+    display: flex;
+}
+
 .isPositive {
     color: greenyellow;
 }
@@ -43,4 +55,10 @@ h1{
     width: 20%;
     line-height: 2rem;
     font-size: 1.5rem;
+}
+footer{
+    position: absolute;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.8);
+    width: 100%;
 }
