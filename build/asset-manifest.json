@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/guocheng-li-project3/static/css/main.5dd43d99.chunk.css",
+    "main.js": "/guocheng-li-project3/static/js/main.32fb0802.chunk.js",
+    "main.js.map": "/guocheng-li-project3/static/js/main.32fb0802.chunk.js.map",
+    "runtime-main.js": "/guocheng-li-project3/static/js/runtime-main.a47f1280.js",
+    "runtime-main.js.map": "/guocheng-li-project3/static/js/runtime-main.a47f1280.js.map",
+    "static/js/2.c7f498ec.chunk.js": "/guocheng-li-project3/static/js/2.c7f498ec.chunk.js",
+    "static/js/2.c7f498ec.chunk.js.map": "/guocheng-li-project3/static/js/2.c7f498ec.chunk.js.map",
+    "index.html": "/guocheng-li-project3/index.html",
+    "static/css/main.5dd43d99.chunk.css.map": "/guocheng-li-project3/static/css/main.5dd43d99.chunk.css.map",
+    "static/js/2.c7f498ec.chunk.js.LICENSE.txt": "/guocheng-li-project3/static/js/2.c7f498ec.chunk.js.LICENSE.txt",
+    "static/media/App.css": "/guocheng-li-project3/static/media/background.a1ea594a.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.a47f1280.js",
+    "static/js/2.c7f498ec.chunk.js",
+    "static/css/main.5dd43d99.chunk.css",
+    "static/js/main.32fb0802.chunk.js"
+  ]
+}
