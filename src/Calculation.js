@@ -22,6 +22,7 @@ const Calculation = (props) => {
         },
       });
       newArray.push(promiseObj);
+      return newArray;
     });
     Promise.all(newArray)
       .then((res) => {
@@ -60,18 +61,17 @@ const Calculation = (props) => {
           </tr>
         </thead>
         <tbody>
-          <tr>
             {newList.map((profitObject) => {
               return (
-                <td
-                  className={positiveValue(profitObject.profit)}
-                  key={profitObject.key}
-                >
-                  ${profitObject.profit} USD
-                </td>
+                <tr key={profitObject.key}>
+                  <td
+                    className={positiveValue(profitObject.profit)}
+                  >
+                    ${profitObject.profit} USD
+                  </td>
+                </tr>
               );
             })}
-          </tr>
         </tbody>
       </table>
       <button className="submit" onClick={handleCalculate}>

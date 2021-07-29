@@ -15,6 +15,7 @@ const Stocks = (props) => {
           <th>Symbol</th>
           <th>Price</th>
           <th>Share</th>
+          <th>+/-</th>
         </tr>
       </thead>
       <tbody>

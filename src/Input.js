@@ -16,7 +16,6 @@ const Input = () => {
       price,
       share,
     });
-
     setSymbol("");
     setPrice("");
     setShare("");
