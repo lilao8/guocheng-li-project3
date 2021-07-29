@@ -37,7 +37,7 @@ const Input = () => {
         }}
       />
       <input
-        type="text"
+        type="number"
         placeholder="Price"
         onChange={(e) => {
           setPrice(e.target.value);
@@ -45,7 +45,7 @@ const Input = () => {
         value={price}
       />
       <input
-        type="text"
+        type="number"
         placeholder="Share"
         onChange={(e) => {
           setShare(e.target.value);

@@ -1,68 +1,104 @@
-
-html{
-    color: white;
-    font-size: 16px;
-    text-align: center;
-    background-image: url(./background.jpg);
-    
-    background-size: cover;
+html {
+  color: white;
+  font-size: 14px;
+  text-align: center;
+  background-image: url(./background.jpg);
+  background-size: cover;
 }
 
-main{
-    font-size: 2rem;
+header {
+  background-color: rgba(0, 0, 0, 0.7);
+  display: table;
+  margin: 10vh auto;
+  padding: 0 20px;
 }
+
+main {
+  font-size: 2rem;
+}
+
 .wrapper {
-    width: 90%;
-    max-width: 1440px;
-    margin: 0 auto;
-}
-form label{
-  background-color: rgba(0,0,0,0.7);
-}
-input {
-    display:block;
-}
-input{
-    margin: 0 auto;
-}
-.tables{
-    display: flex;
-    justify-content: center;
-}
-table {
-    background-color: rgba(0,0,0,0.7);
-    padding: 30px;
-    margin: 30px 0;
-}
-td {
-    text-transform: uppercase;  
+  width: 90%;
+  max-width: 1440px;
+  margin: 0 auto;
 }
 
-h1{
-    font-size: 3rem;
+form button {
+  margin-top: 20px;
 }
-.calculation thead{
-    display: flex;
+
+input {
+  display: block;
+  margin: 10px auto;
 }
-.calculation tbody tr{
-    display: flex;
-    flex-direction: column;
+
+.tables {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+table {
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 20px;
+  margin: 30px 0;
+}
+
+td {
+  text-transform: uppercase;
+}
+
+h1 {
+  font-size: 3rem;
+}
+h2 {
+  text-align: left;
+  padding: 5px;
+}
+
+.calculation thead {
+  display: flex;
+}
+
+.calculation tbody tr {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .isPositive {
-    color: greenyellow;
+  color: green;
 }
+
 .isNegative {
-    color: red;
+  color: red;
 }
-.submit{
-    width: 20%;
-    line-height: 2rem;
-    font-size: 1.5rem;
+
+.submit {
+  position: absolute;
+  left: 50;
+  bottom: -10px;
+  font-size: 1.5rem;
 }
-footer{
-    position: absolute;
-    bottom: 0;
-    background-color: rgba(0,0,0,0.8);
-    width: 100%;
+
+footer {
+  position: fixed;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  width: 100%;
+}
+
+@media (max-width:768px) {
+    header {
+        margin-bottom: 5vh;
+    }
+}
+
+@media (max-width:375px) {
+    main {
+        margin-bottom: 8vh;
+    }
+    table{
+        padding: 0;
+    }
 }

@@ -45,12 +45,11 @@ const Calculation = (props) => {
         setNewList(profitArray);
       })
       .catch((error) => {
-        console.log(
-          error,
-          "Please enter correct information or wait for another minute."
-        );
+        alert("Please enter correct information or wait for another minute.");
       });
   };
+  const positiveValue = (num) =>
+    num > 0 ? "isPositive" : num < 0 ? "isNegative" : "";
 
   return (
     <>
@@ -63,8 +62,14 @@ const Calculation = (props) => {
         <tbody>
           <tr>
             {newList.map((profitObject) => {
-              
-              return <td key={profitObject.key}>{profitObject.profit}</td>;
+              return (
+                <td
+                  className={positiveValue(profitObject.profit)}
+                  key={profitObject.key}
+                >
+                  ${profitObject.profit} USD
+                </td>
+              );
             })}
           </tr>
         </tbody>
