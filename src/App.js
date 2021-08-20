@@ -26,7 +26,6 @@ function App() {
     });
   }, []);
 
-
   return (
     <div className="App">
       <header>
@@ -47,10 +46,8 @@ function App() {
 
       <footer>
         Created at
-        <span>
-          <a href="https://junocollege.com/"> Juno College</a>
-        </span>
-        , powered by <a href="https://www.alphavantage.co/">alphavantage</a>
+        <a href="https://junocollege.com/"> Juno College</a>, powered by{" "}
+        <a href="https://www.alphavantage.co/">Alphavantage</a>
       </footer>
     </div>
   );

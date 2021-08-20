@@ -33,7 +33,6 @@ const Stocks = (props) => {
                 >
                   -
                 </button>
-
               </td>
             </tr>
           );

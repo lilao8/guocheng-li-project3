@@ -61,17 +61,15 @@ const Calculation = (props) => {
           </tr>
         </thead>
         <tbody>
-            {newList.map((profitObject) => {
-              return (
-                <tr key={profitObject.key}>
-                  <td
-                    className={positiveValue(profitObject.profit)}
-                  >
-                    ${profitObject.profit} USD
-                  </td>
-                </tr>
-              );
-            })}
+          {newList.map((profitObject) => {
+            return (
+              <tr key={profitObject.key}>
+                <td className={positiveValue(profitObject.profit)}>
+                  ${profitObject.profit} USD
+                </td>
+              </tr>
+            );
+          })}
         </tbody>
       </table>
       <button className="submit" onClick={handleCalculate}>
