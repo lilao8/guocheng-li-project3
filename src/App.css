@@ -21,16 +21,24 @@ header {
   display: table;
   margin: 10vh auto;
   padding: 0 20px;
+  height: 50vh;
 }
 
 main {
   font-size: 2rem;
+  background-color: rgba(0, 0, 0, 0.7);
 }
 
 .wrapper {
-  width: 90%;
+  width: 60%;
   max-width: 1440px;
   margin: 0 auto;
+}
+
+.tables{
+  display: flex;
+  justify-content: center;
+  
 }
 
 form button {
@@ -42,18 +50,6 @@ input {
   margin: 10px auto;
 }
 
-.tables {
-  display: flex;
-  justify-content: center;
-  position: relative;
-}
-
-table {
-  background-color: rgba(0, 0, 0, 0.7);
-  padding: 20px;
-  margin: 30px 0;
-}
-
 .hide{
     color: #000;
 }
@@ -62,32 +58,27 @@ table {
     background-color: white;
 }
 
-td {
+ul {
   text-transform: uppercase;
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
+  line-height: 40px;
 }
 
-table, th, td{
-    border: 1px solid white;
+li{
+  border: 1px solid white;
+  margin: 0;
+  width: 200px;
 }
-.calculation td, .calculation th{
-    border: none;
-}
+
 h1 {
   font-size: 3rem;
 }
 h2 {
   text-align: left;
   padding: 5px;
-}
-
-.calculation thead {
-  display: flex;
-}
-
-.calculation tbody tr {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
 }
 
 .isPositive {
@@ -98,11 +89,16 @@ h2 {
   color: red;
 }
 
+.delete{
+  background-color: transparent;
+  border: 1px solid white;
+}
+
 .submit {
   position: absolute;
-  left: 50;
-  bottom: -10px;
-  font-size: 1.5rem;
+  left: 45%;
+  top: 60vh;
+  text-align: center;
 }
 
 footer {
@@ -112,17 +108,27 @@ footer {
   width: 100%;
 }
 
-@media (max-width:768px) {
+@media (max-width:1000px) {
     header {
         margin-bottom: 5vh;
     }
+    li{
+      width: 100px;
+    }
 }
 
-@media (max-width:375px) {
+@media (max-width:768px) {
     main {
         margin-bottom: 8vh;
     }
-    table{
-        padding: 0;
+    li{
+      width: 60px;
+      font-size: 1rem;
     }
+}
+@media (max-width:400px) {
+  .submit{
+    top: 70vh;
+    left: 30%;
+  }
 }

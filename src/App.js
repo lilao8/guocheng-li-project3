@@ -5,6 +5,7 @@ import Input from "./Input";
 import Stocks from "./Stocks";
 import Calculation from "./Calculation";
 
+
 function App() {
   const [stockList, setStockList] = useState([]);
 
@@ -26,12 +27,12 @@ function App() {
     });
   }, []);
 
+
   return (
     <div className="App">
       <header>
         <h1>Stock Watchlist📈📈📈</h1>
         <Input stockList={stockList} />
-        <p>Example: TSLA; 450; 10</p>
         <h2>Rule 1: No more than 5 stocks each time.</h2>
         <h2>Rule 2: Do not try more than 5 times per minute.</h2>
         <p className="hide">Data from 2021-07-23</p>

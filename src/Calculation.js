@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import axios from "axios";
 
 const Calculation = (props) => {
   const { stockList } = props;
   const [newList, setNewList] = useState([]);
   let totalProfit = 0;
+  const results = useRef(null);
 
   const handleCalculate = (e) => {
     e.preventDefault();
@@ -27,6 +28,7 @@ const Calculation = (props) => {
     Promise.all(newArray)
       .then((res) => {
         const profitArray = [];
+        results.current.scrollIntoView();
         res.forEach((obj) => {
           stockList.forEach((stockObj) => {
             if (stockObj.symbol === obj.data["Meta Data"]["2. Symbol"]) {
@@ -44,6 +46,7 @@ const Calculation = (props) => {
           });
         });
         setNewList(profitArray);
+        results.current.scrollIntoView();
       })
       .catch((error) => {
         alert("Please enter correct information or wait for another minute.");
@@ -53,29 +56,29 @@ const Calculation = (props) => {
     num > 0 ? "isPositive" : num < 0 ? "isNegative" : "";
 
   return (
-    <>
-      <table className="calculation">
-        <thead>
-          <tr>
-            <th>Profit</th>
-          </tr>
-        </thead>
-        <tbody>
-          {newList.map((profitObject) => {
-            return (
-              <tr key={profitObject.key}>
-                <td className={positiveValue(profitObject.profit)}>
-                  ${profitObject.profit} USD
-                </td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
+    <div ref={results} className="calculation">
       <button className="submit" onClick={handleCalculate}>
         Calculate
       </button>
-    </>
+      <div>
+        <div>
+          <ul>
+            <li>Profit</li>
+          </ul>
+        </div>
+        <div>
+          {newList.map((profitObject) => {
+            return (
+              <ul key={profitObject.key}>
+                <li className={positiveValue(profitObject.profit)}>
+                  ${profitObject.profit} USD
+                </li>
+              </ul>
+            );
+          })}
+        </div>
+      </div>
+    </div>
   );
 };
 

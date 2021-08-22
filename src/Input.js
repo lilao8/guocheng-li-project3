@@ -30,28 +30,33 @@ const Input = () => {
         type="text"
         id="stockInput"
         value={symbol}
-        placeholder="Symbol"
+        placeholder="Symbol(e.g. TSLA)"
         onChange={(e) => {
           setSymbol(e.target.value);
         }}
       />
+      <label htmlFor="priceInput"></label>
       <input
+        id="priceInput"
         type="number"
-        placeholder="Price"
+        placeholder="Price(e.g.400)"
         onChange={(e) => {
           setPrice(e.target.value);
         }}
         value={price}
       />
+      <label htmlFor="shareInput"></label>
       <input
+        id="shareInput"
         type="number"
-        placeholder="Share"
+        placeholder="Share(e.g.20)"
         onChange={(e) => {
           setShare(e.target.value);
         }}
         value={share}
       />
-      <button>Add to the list</button>
+      <label htmlFor="btn"></label>
+      <button id="btn">Add to the list</button>
     </form>
   );
 };

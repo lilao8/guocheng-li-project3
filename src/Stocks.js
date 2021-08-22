@@ -9,36 +9,37 @@ const Stocks = (props) => {
   };
 
   return (
-    <table>
-      <thead>
-        <tr>
-          <th>Symbol</th>
-          <th>Price</th>
-          <th>Share</th>
-          <th>+/-</th>
-        </tr>
-      </thead>
-      <tbody>
+    <div className="big">
+      <div className="mid">
+        <ul>
+          <li>Symbol</li>
+          <li>Price</li>
+          <li>Share</li>
+          <li>+/-</li>
+        </ul>
+      </div>
+      <div className="mid">
         {stockList.map((stockObject) => {
           return (
-            <tr key={stockObject.key}>
-              <td>{stockObject.symbol}</td>
-              <td>{stockObject.price}</td>
-              <td>{stockObject.share}</td>
-              <td>
+            <ul key={stockObject.key}>
+              <li>{stockObject.symbol}</li>
+              <li>{stockObject.price}</li>
+              <li>{stockObject.share}</li>
+              <li>
                 <button
+                  className="delete"
                   onClick={() => {
                     handleDelete(stockObject.key);
                   }}
                 >
-                  -
+                  🗑
                 </button>
-              </td>
-            </tr>
+              </li>
+            </ul>
           );
         })}
-      </tbody>
-    </table>
+      </div>
+    </div>
   );
 };
 
