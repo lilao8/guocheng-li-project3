@@ -255,8 +255,15 @@ main {
   width: 100%;
 }
 
+button:hover{
+  background-color: black;
+  color: white;
+  opacity: 1;
+}
 form button {
   margin-top: 20px;
+  border: none;
+  padding: 5px;
 }
 
 input {
@@ -311,9 +318,12 @@ h2 {
 
 .submit {
   position: absolute;
-  left: 45%;
-  top: 60vh;
+  left: 47%;
+  top: 62vh;
   text-align: center;
+  border: none;
+  padding: 10px 10px;
+  display: inline-block;
 }
 
 footer {
