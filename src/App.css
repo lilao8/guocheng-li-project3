@@ -234,7 +234,7 @@ header {
   background-color: rgba(0, 0, 0, 0.7);
   display: table;
   margin: 10vh auto;
-  padding: 0 20px;
+  padding:20px;
   height: 50vh;
 }
 
@@ -252,7 +252,7 @@ main {
   display: flex;
   justify-content: center;
   background-color: rgba(0, 0, 0, 0.7);
-  width: 100%;
+  width: 80%;
 }
 
 button:hover{
@@ -273,6 +273,7 @@ input {
 
 .hide {
   color: #000;
+  margin-bottom: 0;
 }
 
 .hide:hover,
@@ -292,7 +293,7 @@ ul {
 li {
   border: 1px solid white;
   margin: 0;
-  width: 200px;
+  width: 150px;
 }
 
 h1 {
@@ -317,13 +318,11 @@ h2 {
 }
 
 .submit {
-  position: absolute;
-  left: 47%;
-  top: 62vh;
+  position:relative;
   text-align: center;
   border: none;
   padding: 10px 10px;
-  display: inline-block;
+
 }
 
 footer {
